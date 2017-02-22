@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MVCData.Models.Person>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>List of People:</h3>
+
+
+<table class="table table-bordered" >
+    <tr>
+        <th class="success">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th class="success">
+            @Html.DisplayNameFor(model => model.Cellphone)
+        </th>
+        <th class="success">
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th class="success">
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th class="success">Option</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cellphone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td class="active">
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+</table>
+<div>
+    @Html.ActionLink("Back to the home page", "Index" , null ,new {@class = "btn btn-default" })
+    @Html.ActionLink("Create New", "Create",null,new { @class ="btn btn-success"}) 
+    @Html.ActionLink("Filter By Name", "FilterN",null ,new {@class ="btn btn-warning" }) 
+    @Html.ActionLink("Filter By City", "FilterC", null, new { @class = "btn btn-primary" }) 
+</div>

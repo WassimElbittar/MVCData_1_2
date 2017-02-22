@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<MVCData.Models.Person>
+
+
+<table class="table table-bordered table-striped">
+
+    @foreach (var Item in Model)
+    {
+        @Html.Partial("_Index", Item);
+    }
+</table>
+

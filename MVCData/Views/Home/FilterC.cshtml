@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MVCData.Models.Person>
+
+@{
+    ViewBag.Title = "FilterC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Display The List Of People By City</h4>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th class="btn-primary">
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th class="btn-primary">
+            @Html.DisplayNameFor(model => model.Cellphone)
+        </th>
+        <th class="btn-primary">
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th class="btn-primary">
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="active">
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td class="active">
+            @Html.DisplayFor(modelItem => item.Cellphone)
+        </td>
+        <td class="active">
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td class="active">
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+   </tr>
+}
+</table>
+<div>
+    @Html.ActionLink("Back to the main list", "List", null, new { @class = "btn btn-info" })
+</div>

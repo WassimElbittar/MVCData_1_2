@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCData.Models.Person>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>List of people</h1>
+
+@Ajax.ActionLink("Click on the link below in order to view a list of people", "Index", new AjaxOptions()
+{
+    HttpMethod = "Post",
+    UpdateTargetId = "DivPeople",
+    InsertionMode = InsertionMode.Replace
+})
+
+<div id="DivPeople"></div>
+   
+<script>
+    function ajaxFunc() {
+      
+        $.ajax({
+            data: id = 0,
+            type: 'POST',
+            url: '@Url.Action("AjaxPost", "Home")',
+            success: function myfunction() {
+                //code
+            }
+        })
+    }
+</script>
